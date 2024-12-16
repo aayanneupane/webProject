@@ -16,7 +16,8 @@ $password = password_hash($_POST['password'], PASSWORD_BCRYPT); // Encrypt passw
 $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Account created successfully. <a href='login.html'>Login Here</a>";
+    header("Location: login.html");
+    exit();
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }

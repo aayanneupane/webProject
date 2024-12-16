@@ -20,7 +20,9 @@ if ($result->num_rows > 0) {
 
     // Verify password
     if (password_verify($password, $user['password'])) {
-        echo "Login successful. Welcome, " . $user['username'] . "!";
+        header("Location: home.php");
+        exit();
+        
     } else {
         echo "Invalid password.";
     }
